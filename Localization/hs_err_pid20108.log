@@ -1,0 +1,260 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0xc97e51b4, pid=20108, tid=14776
+#
+# JRE version: 6.0_17-b04
+# Java VM: Java HotSpot(TM) Client VM (14.3-b01 mixed mode windows-x86 )
+# Problematic frame:
+# C  0xc97e51b4
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x2443f400):  JavaThread "AWT-Windows" daemon [_thread_in_native, id=14776, stack(0x25790000,0x25810000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x00000111
+
+Registers:
+EAX=0x5e010000, EBX=0x74b74f8a, ECX=0x5e013400, EDX=0x67ba8234
+ESP=0x2580ed7c, EBP=0x0000a220, ESI=0x24b28ae0, EDI=0x00000111
+EIP=0xc97e51b4, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x2580ed7c)
+0x2580ed7c:   23583732 2358678f 0000a220 00000000
+0x2580ed8c:   00000000 0000a220 24b28ae0 2580ee10
+0x2580ed9c:   00000111 00000001 ffffffeb 2580ede4
+0x2580edac:   75018d35 00000000 2443f510 2580ee04
+0x2580edbc:   235cde88 00000000 235ad97e 00000111
+0x2580edcc:   0000a220 00000000 00000000 001002cc
+0x2580eddc:   0000a220 00000000 2357d55b 00000111
+0x2580edec:   0000a220 00000000 00000000 00000111 
+
+Instructions: (pc=0xc97e51b4)
+0xc97e51a4:   00 00 00 00 d5 83 5a d1 00 76 06 88 32 38 69 3b
+0xc97e51b4:   a5 fd fd 3f 2a 0c 00 00 3f 0c 00 00 ff ff ff ff 
+
+
+Stack: [0x25790000,0x25810000],  sp=0x2580ed7c,  free space=507k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0xc97e51b4
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.awt.windows.WToolkit.eventLoop()V+0
+j  sun.awt.windows.WToolkit.run()V+69
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x24c77000 JavaThread "Code Analyzer updating thread" [_thread_blocked, id=13568, stack(0x079c0000,0x07a40000)]
+  0x24c74c00 JavaThread "Prefs Updater" daemon [_thread_blocked, id=14160, stack(0x07660000,0x076e0000)]
+  0x24c0f000 JavaThread "Active Reference Queue Daemon" daemon [_thread_blocked, id=22460, stack(0x07450000,0x074d0000)]
+  0x24c0ec00 JavaThread "Timer-5" daemon [_thread_blocked, id=23452, stack(0x07390000,0x07410000)]
+  0x24c10800 JavaThread "Timer-4" daemon [_thread_blocked, id=21004, stack(0x29c00000,0x29c80000)]
+  0x24c11400 JavaThread "Explorer NavigationContext request queue" [_thread_blocked, id=10120, stack(0x29a80000,0x29b00000)]
+  0x24776000 JavaThread "AddressBar directory emptiness poller" [_thread_blocked, id=23356, stack(0x29900000,0x29980000)]
+  0x24776c00 JavaThread "Explorer Refresh Service 25584310" [_thread_blocked, id=2244, stack(0x29840000,0x298c0000)]
+  0x24775400 JavaThread "Timer-1" daemon [_thread_blocked, id=22976, stack(0x294c0000,0x29540000)]
+  0x24774c00 JavaThread "TimerQueue" daemon [_thread_blocked, id=23352, stack(0x27170000,0x271f0000)]
+  0x24774800 JavaThread "Thread-5" daemon [_thread_blocked, id=21376, stack(0x25aa0000,0x25b20000)]
+  0x24777c00 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=23204, stack(0x259e0000,0x25a60000)]
+  0x24777800 JavaThread "AWT-Shutdown" [_thread_blocked, id=22832, stack(0x256d0000,0x25750000)]
+  0x24777000 JavaThread "FelixPackageAdmin" daemon [_thread_blocked, id=22972, stack(0x25ce0000,0x25d60000)]
+  0x24455400 JavaThread "FelixStartLevel" daemon [_thread_blocked, id=22684, stack(0x25c20000,0x25ca0000)]
+  0x247a4400 JavaThread "FelixDispatchQueue" daemon [_thread_blocked, id=23480, stack(0x25b60000,0x25be0000)]
+  0x2445a800 JavaThread "com.google.common.base.internal.Finalizer" daemon [_thread_blocked, id=22676, stack(0x25920000,0x259a0000)]
+=>0x2443f400 JavaThread "AWT-Windows" daemon [_thread_in_native, id=14776, stack(0x25790000,0x25810000)]
+  0x24438800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=23208, stack(0x25610000,0x25690000)]
+  0x23e83000 JavaThread "Timer-0" [_thread_blocked, id=20740, stack(0x24570000,0x245f0000)]
+  0x2375d400 JavaThread "EventMgr Dispatcher" daemon [_thread_in_native, id=11208, stack(0x07ac0000,0x082c0000)]
+  0x1177e400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=22628, stack(0x22c50000,0x22cd0000)]
+  0x1177d400 JavaThread "CompilerThread0" daemon [_thread_blocked, id=23408, stack(0x22410000,0x22c10000)]
+  0x11777c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=9676, stack(0x22350000,0x223d0000)]
+  0x11757c00 JavaThread "Finalizer" daemon [_thread_blocked, id=23448, stack(0x22290000,0x22310000)]
+  0x11753000 JavaThread "Reference Handler" daemon [_thread_blocked, id=23284, stack(0x221d0000,0x22250000)]
+  0x116d6800 JavaThread "main" [_thread_in_native, id=23236, stack(0x00f80000,0x01780000)]
+
+Other Threads:
+  0x11750000 VMThread [stack: 0x21990000,0x22190000] [id=21952]
+  0x1178c000 WatcherThread [stack: 0x22d10000,0x23510000] [id=23436]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 25344K, used 14190K [0x13850000, 0x153d0000, 0x15850000)
+  eden space 22528K,  60% used [0x13850000, 0x145aaef0, 0x14e50000)
+  from space 2816K,  18% used [0x15110000, 0x15190958, 0x153d0000)
+  to   space 2816K,   0% used [0x14e50000, 0x14e50000, 0x15110000)
+ tenured generation   total 84044K, used 62096K [0x15850000, 0x1aa63000, 0x1b850000)
+   the space 84044K,  73% used [0x15850000, 0x194f43b0, 0x194f4400, 0x1aa63000)
+ compacting perm gen  total 40704K, used 40624K [0x1b850000, 0x1e010000, 0x21850000)
+   the space 40704K,  99% used [0x1b850000, 0x1dffc198, 0x1dffc200, 0x1e010000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00f50000 - 0x00f77000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\MATLAB.exe
+0x772f0000 - 0x77447000 	C:\Windows\SYSTEM32\ntdll.dll
+0x74b50000 - 0x74c80000 	C:\Windows\SYSTEM32\KERNEL32.DLL
+0x75290000 - 0x75336000 	C:\Windows\SYSTEM32\KERNELBASE.dll
+0x7ef10000 - 0x7ef9c000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libut.dll
+0x10000000 - 0x10220000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwservices.dll
+0x7f270000 - 0x7f2f7000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mcr.dll
+0x74670000 - 0x746fe000 	C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6871_none_50944e7cbcb706e5\MSVCP90.dll
+0x745c0000 - 0x74663000 	C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6871_none_50944e7cbcb706e5\MSVCR90.dll
+0x7dce0000 - 0x7dd5a000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwi18n.dll
+0x00c00000 - 0x00d20000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwfl.dll
+0x73d00000 - 0x73d0e000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_date_time-vc90-mt-1_44.dll
+0x73f70000 - 0x73f77000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_system-vc90-mt-1_44.dll
+0x73d10000 - 0x73d1e000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_thread-vc90-mt-1_44.dll
+0x00e20000 - 0x00eac000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_log-vc90-mt-1_44.dll
+0x7ea10000 - 0x7eb2f000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\icuuc44.dll
+0x73db0000 - 0x73dbf000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\icuio44.dll
+0x76490000 - 0x76496000 	C:\Windows\SYSTEM32\PSAPI.DLL
+0x743e0000 - 0x74509000 	C:\Windows\SYSTEM32\dbghelp.dll
+0x77100000 - 0x771ae000 	C:\Windows\SYSTEM32\ADVAPI32.dll
+0x75010000 - 0x75126000 	C:\Windows\SYSTEM32\USER32.dll
+0x7db50000 - 0x7dbe7000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmx.dll
+0x00b20000 - 0x00b55000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwregexp.dll
+0x00b60000 - 0x00b7a000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwmfl_scalar.dll
+0x7df40000 - 0x7df79000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mpath.dll
+0x72990000 - 0x72da0000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mlutil.dll
+0x01780000 - 0x01a88000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwMATLAB_res.dll
+0x00eb0000 - 0x00ecb000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwMATLAB_settings_res.dll
+0x736b0000 - 0x736d3000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_filesystem-vc90-mt-1_44.dll
+0x00ed0000 - 0x00f09000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_serialization-vc90-mt-1_44.dll
+0x76500000 - 0x76587000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.9200.16384_none_bf100cd445f4d954\COMCTL32.dll
+0x74f20000 - 0x74fa9000 	C:\Windows\SYSTEM32\COMDLG32.dll
+0x736f0000 - 0x73702000 	C:\Windows\SYSTEM32\NETAPI32.dll
+0x74ae0000 - 0x74b30000 	C:\Windows\SYSTEM32\WS2_32.dll
+0x00f10000 - 0x00f43000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\tbb.dll
+0x71cf0000 - 0x71ea2000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\xerces-c_2_7.dll
+0x75360000 - 0x76426000 	C:\Windows\SYSTEM32\SHELL32.dll
+0x75130000 - 0x75249000 	C:\Windows\SYSTEM32\ole32.dll
+0x74c80000 - 0x74d0b000 	C:\Windows\SYSTEM32\OLEAUT32.dll
+0x7d4b0000 - 0x7d7b0000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\iqm.dll
+0x7e1c0000 - 0x7e1e9000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwbridge.dll
+0x71c30000 - 0x71c4c000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmex.dll
+0x7f630000 - 0x7f6af000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\m_dispatcher.dll
+0x01aa0000 - 0x01c4a000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mcos.dll
+0x01c50000 - 0x01d5e000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwgui.dll
+0x01d60000 - 0x02426000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\hg.dll
+0x02430000 - 0x024f1000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\hgutils.dll
+0x02500000 - 0x02a41000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\m_interpreter.dll
+0x7d9d0000 - 0x7da66000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\jmi.dll
+0x02a50000 - 0x02ad8000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\udd_mi.dll
+0x02ae0000 - 0x02d7b000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\uiw.dll
+0x71c10000 - 0x71c29000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mwoles05.DLL
+0x02d80000 - 0x02dd5000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\comcli.dll
+0x02de0000 - 0x02de9000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mlautoregister.dll
+0x02df0000 - 0x02dfd000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_iostreams-vc90-mt-1_44.dll
+0x76d70000 - 0x76e6d000 	C:\Windows\SYSTEM32\GDI32.dll
+0x02e10000 - 0x02e19000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwresource_core.dll
+0x73550000 - 0x7356f000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\LIBEXPAT.dll
+0x72eb0000 - 0x73035000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\icuin44.dll
+0x73c80000 - 0x73c8f000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_signals-vc90-mt-1_44.dll
+0x75340000 - 0x75352000 	C:\Windows\SYSTEM32\imagehlp.dll
+0x02e80000 - 0x03cc1000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\icudt44.dll
+0x76e70000 - 0x76f21000 	C:\Windows\SYSTEM32\msvcrt.dll
+0x76f30000 - 0x76f64000 	C:\Windows\SYSTEM32\sechost.dll
+0x77050000 - 0x770fc000 	C:\Windows\SYSTEM32\RPCRT4.dll
+0x03cf0000 - 0x03d0d000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\tbbmalloc.dll
+0x73730000 - 0x73744000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\zlib1.dll
+0x03d50000 - 0x03dae000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\xmlcore.dll
+0x75250000 - 0x75290000 	C:\Windows\SYSTEM32\SHLWAPI.dll
+0x736e0000 - 0x736eb000 	C:\Windows\SYSTEM32\netutils.dll
+0x03df0000 - 0x03e0c000 	C:\Windows\SYSTEM32\srvcli.dll
+0x03e10000 - 0x03e20000 	C:\Windows\SYSTEM32\wkscli.dll
+0x764a0000 - 0x764a8000 	C:\Windows\SYSTEM32\NSI.dll
+0x76c30000 - 0x76d66000 	C:\Windows\SYSTEM32\combase.dll
+0x03e60000 - 0x03ef3000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\udd.dll
+0x7f130000 - 0x7f1ec000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\boost_regex-vc90-mt-1_44.dll
+0x718d0000 - 0x718e2000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\graphics_util.dll
+0x7e040000 - 0x7e084000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmat.dll
+0x03f50000 - 0x03f84000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwhardcopy.dll
+0x03f90000 - 0x03fd4000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libuij.dll
+0x03fe0000 - 0x04193000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\hgdatatypes.dll
+0x041a0000 - 0x041d9000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwlapack.dll
+0x041e0000 - 0x04210000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwgbtutils.dll
+0x04210000 - 0x04223000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwgbt.dll
+0x04230000 - 0x045cd000 	C:\Windows\WinSxS\x86_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_4bf7e3e2bf9ada4c\mfc90.dll
+0x74010000 - 0x74070000 	C:\Windows\SYSTEM32\WINSPOOL.DRV
+0x045f0000 - 0x0464c000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\profiler.dll
+0x04650000 - 0x0487c000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwmathutil.dll
+0x734f0000 - 0x73513000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwmathrng.dll
+0x04880000 - 0x04895000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\m_pcodeio.dll
+0x048a0000 - 0x048ea000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\m_ir.dll
+0x048f0000 - 0x04e40000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\m_parser.dll
+0x04e40000 - 0x04e64000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\m_pcodegen.dll
+0x04e70000 - 0x04ebb000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwspmatrix.dll
+0x04ed0000 - 0x04edb000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\nativejava_services.dll
+0x718c0000 - 0x718cd000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\uinone.dll
+0x04f00000 - 0x04f1f000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwnativefiledialogs.dll
+0x73a20000 - 0x73a33000 	C:\Windows\SYSTEM32\MPR.dll
+0x04f30000 - 0x04f5b000 	C:\Windows\WinSxS\x86_microsoft.vc90.atl_1fc8b3b9a1e18e3b_9.0.30729.6161_none_51cd0a7abbe4e19b\ATL90.DLL
+0x74980000 - 0x7499c000 	C:\Windows\SYSTEM32\SspiCli.dll
+0x05040000 - 0x05225000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\hdf5dll.dll
+0x73d30000 - 0x73d3d000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwbinder.dll
+0x73ea0000 - 0x73eaa000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwompwrapper.dll
+0x74070000 - 0x74076000 	C:\Windows\SYSTEM32\MSIMG32.dll
+0x052c0000 - 0x052cf000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwmfl_rng.dll
+0x7c390000 - 0x7c428000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwmathcore.dll
+0x05300000 - 0x05312000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\ir_xfmr.dll
+0x05320000 - 0x0532e000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\mtok.dll
+0x05380000 - 0x05387000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwplatform_res.dll
+0x74970000 - 0x74979000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x74750000 - 0x747c5000 	C:\Windows\SYSTEM32\SHCORE.DLL
+0x7dbf0000 - 0x7dc3b000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwcholmod.dll
+0x74910000 - 0x74961000 	C:\Windows\SYSTEM32\bcryptPrimitives.dll
+0x73e70000 - 0x73e7a000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwamd.dll
+0x73e80000 - 0x73e8a000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwcolamd.dll
+0x73dd0000 - 0x73de1000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\libmwblas.dll
+0x74b30000 - 0x74b50000 	C:\Windows\system32\IMM32.DLL
+0x76f70000 - 0x7704d000 	C:\Windows\SYSTEM32\MSCTF.dll
+0x73ab0000 - 0x73b38000 	C:\Windows\system32\UxTheme.dll
+0x73a90000 - 0x73aa9000 	C:\Windows\system32\dwmapi.dll
+0x056d0000 - 0x056dd000 	C:\Windows\WinSxS\x86_microsoft.vc90.mfcloc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_49768ef57548175e\MFC90ENU.DLL
+0x74280000 - 0x74291000 	C:\Windows\SYSTEM32\profapi.dll
+0x07190000 - 0x0719b000 	\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32\xmlxrcsc.dll
+0x07230000 - 0x0723e000 	C:\Program Files (x86)\Iminent\Iminent.WinCore.dll
+0x743d0000 - 0x743d8000 	C:\Windows\SYSTEM32\VERSION.dll
+0x07260000 - 0x0727a000 	C:\Program Files (x86)\TeamViewer\Version8\tv_w32.dll
+0x07280000 - 0x072a7000 	C:\Windows\SYSTEM32\CRTDLL.dll
+0x0a320000 - 0x0a3b0000 	C:\Program Files (x86)\PremierOpinion\pmls.dll
+
+VM Arguments:
+jvm_args: -Xss512k -XX:PermSize=32m -Xms64m -XX:NewRatio=3 -XX:MaxPermSize=96m -Xmx128m -XX:MaxDirectMemorySize=1200000000 -Dsun.java2d.noddraw=true -Dsun.awt.nopixfmt=true -Xshare:off -Xrs -Dsun.awt.disableMixing=true -Djava.library.path=\\etas333-00.git.ualr.edu\matlab\R2012b-32\bin\win32;\\etas333-00.git.ualr.edu\matlab\R2012b-32\sys\jxbrowser\win32\lib vfprintf abort 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\MATLAB\R2012b\runtime\win64;C:\Program Files\MATLAB\R2012b\bin;C:\Program Files\Internet Explorer;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\
+USERNAME=iasl
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 8 (8 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, ht
+
+Memory: 4k page, physical 4194303k(4194303k free), swap 4194303k(4194303k free)
+
+vm_info: Java HotSpot(TM) Client VM (14.3-b01) for windows-x86 JRE (1.6.0_17-b04), built on Oct 11 2009 00:52:06 by "java_re" with MS VC++ 7.1
+
+time: Fri Apr 19 10:36:33 2013
+elapsed time: 6240 seconds
+
