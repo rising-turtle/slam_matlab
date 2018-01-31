@@ -1,6 +1,8 @@
 % input: inf: *.csv file 
 % Assumption : Motion caputre data of MOTIVE(file format : *.csv) has at
 % least 5 markers on camera
+%
+% input: inf .log file include TPattern points extracted by extractTPattern.m
 % output: ouf: .log file [timestamp x, y, z, qx, qy, qz, qw]
 
 % Author : David Zhang (hxzhang1@ualr.edu)
@@ -13,21 +15,18 @@ clf
 close all
 
 if nargin == 0 
-    inf = './motion_capture_data/Dense_Slow_640x480_30_b.csv';
+    % inf = './motion_capture_data/Dense_Slow_640x480_30_b.csv';
+    inf = './motion_capture_data/Dense_Slow_640x480_30_b_TPattern.log';
     ouf = './motion_capture_data/Dense_Slow_640x480_30_b_trajectory.log';
 end
 
 %% add 3rd libraries
 add_path_zh;
 
-%% open and load the data 
-fid = fopen(inf);
-if fid < 0
-    error(['Cannot open file ' inf]);
-end
-
-%% 
-[unused, gt, gt_total] = scan_data(fid);  
+%% read data
+gt_total_pair = load(inf); 
+timestamp = gt_total_pair(:,1);
+pts = gt_total_pair(:,2:end);
 
 %% T pattern, find matched points 
 %    ---|---  4/5  1  5/4
@@ -35,8 +34,8 @@ end
 %       |          3
 
 % find the T pattern in each frame, and find 5 matched points
-[ gt_total_pair ] = find_pair_tp( gt_total );
-[ gt_total_pair(:,11:16)] = find_pair_nn( gt_total_pair(:,11:16));
+% [ gt_total_pair ] = find_pair_tp( gt_total );
+% [ gt_total_pair(:,11:16)] = find_pair_nn( gt_total_pair(:,11:16));
 
 %% added by Yimin Zhao on @13/07/2015
 marker=[];
@@ -49,9 +48,9 @@ end
 % gt_total_pair(:,2:end) = gt_total_pair(:,2:end) - repmat(origin, size(gt_total_pair,1), 5); % some concern
 
 % f_w = f_l*R_l2w, p^l = R_l2w * p^w 
-[R_l2w, t_l2w] = compute_initial_T(marker);
+[R_l2w, t_l2w] = compute_initial_Tnew(marker);
 [ gt_total_pair(:,2:16)] = transform_pc( gt_total_pair(:,2:16), R_l2w, t_l2w);
-[ gt(:, 2:4)] = transform_pc(gt(:, 2:4), R_l2w, t_l2w); 
+% [ gt(:, 2:4)] = transform_pc(gt(:, 2:4), R_l2w, t_l2w); 
 
 %% original of Soonhac
 %gt_total_pair(:,2:end) = gt_total_pair(:,2:end) - repmat(gt_total_pair(1,2:4), size(gt_total_pair,1), 5);
