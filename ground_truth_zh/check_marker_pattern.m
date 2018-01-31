@@ -37,7 +37,7 @@ elseif nMarker == 5
     d1 = dot(n,v(3,:));
     d2 = dot(n,v(4,:));
     
-    normal_thresh = 0.0001;
+    normal_thresh = 0.001;
     
     % Compute distance from mean point
     mean_marker = mean(marker);
@@ -50,6 +50,13 @@ elseif nMarker == 5
         end
     end
         
+    if d1 < 0
+        d1 = d1 * -1.;
+    end
+    if d2 < 0
+        d2 = d2 * -1.;
+    end
+    
     if d1 <= normal_thresh && d2 <= normal_thresh && distance_valid
         valid_flag = true;
     end

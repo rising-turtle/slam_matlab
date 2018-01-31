@@ -10,6 +10,11 @@ gt_total=[];
 start_frame_index = 0; %500; %2000; %2300; %1737;
 finish_frame_index = intmax; %intmax; % ; %2600; %4000; %6300; %4146;
 
+% check out number of valid and nonvalid
+cnt_valid = 0;
+cnt_invalid = 0;
+cnt_b5 = 0; % count of points > 5
+
 for i=1:N
     line_i=lines{i};
     line_data = textscan(line_i,'%s %d %f %f %f %f %f %f %d %s %f %f %f %d %s %f %f %f %d %s %f %f %f %d %s %f %f %f %d %s','delimiter',',');
@@ -19,6 +24,7 @@ for i=1:N
                 time_stamp = line_data{3};
                 marker=[];
                 if line_data{5} >= 5  % original
+                    cnt_b5 = cnt_b5 + 1;
                     %if line_data{5} >= 3  % modified @06/14/2015
                     for m=1:line_data{5}
                         marker=[marker; [line_data{(m-1)*5+6},line_data{(m-1)*5+7},line_data{(m-1)*5+8}]];
@@ -27,6 +33,9 @@ for i=1:N
                         pos =  mean(marker,1); %[x,y,z]; % [x,y,z]
                         gt= [gt; time_stamp, pos];
                         gt_total = [gt_total; time_stamp, reshape(marker', 1, 15)];%original
+                        cnt_valid = cnt_valid + 1;
+                    else
+                        cnt_invalid = cnt_invalid + 1;
                     end
                     
                 end
@@ -35,5 +44,7 @@ for i=1:N
     end
 end
 fclose(fid);
+fprintf('scan_data.m: cnt 5-points %d, crn valid %d cnt invalid %d\n', cnt_b5, cnt_valid, cnt_invalid);
+
 end
 
