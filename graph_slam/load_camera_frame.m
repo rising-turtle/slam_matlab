@@ -46,6 +46,7 @@ else
     [frm, des] = sift(img, 'threshold', g_sift_threshold);
 end
 
+
 %% confindence filtering 
 [frm, des] = confidence_filtering(frm, des, c);
 
@@ -57,7 +58,10 @@ p(:,:,2) = y;
 p(:,:,3) = z;
 
 %% save it into file 
-save_feature(fid, img, frm, des, p);
+global g_save_vro_middle_result
+if g_save_vro_middle_result
+    save_feature(fid, img, frm, des, p);
+end
 
 end
 

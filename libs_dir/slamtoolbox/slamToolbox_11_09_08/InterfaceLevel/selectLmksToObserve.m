@@ -1,0 +1,58 @@
+function [lmksToObs,lmksToSkip] = selectLmksToObserve(Obs,N)
+
+% SELECTLMKSTOOBSERVE  Select landmarks to observe.
+%   SELECTLMKSTOOBSERVE(Obs,N) returns a sorted rew-vector of landmark
+%   indices to be observed. In Active Search, this corresponds to those
+%   observations with the largest uncertainty measure (Obs.exp.um). The
+%   vector length is limited to N elements.
+%
+%   See also OBSERVEKNOWNLMKS, SORT.
+
+%   Copyright 2008-2009 Joan Sola @ LAAS-CNRS.
+
+Oexp = [Obs.exp];   % expectations structure array
+um   = [Oexp.um];   % uncertainty measures
+
+% sort from highest to lowest uncertainty measures
+[sortedUm,sortedIdx] = sort(um,2,'descend');
+
+% landmark indices, sorted
+lmkList = [Obs(sortedIdx).lmk];
+
+% limit to N elements
+n          = min(N,numel(lmkList));
+lmksToObs  = lmkList(1:n);     % these are selected for update
+lmksToSkip = lmkList(n+1:end); % these are to be skipped
+
+
+
+% ========== End of function - Start GPL license ==========
+
+
+%   # START GPL LICENSE
+
+%---------------------------------------------------------------------
+%
+%   This file is part of SLAMTB, a SLAM toolbox for Matlab.
+%
+%   SLAMTB is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation, either version 3 of the License, or
+%   (at your option) any later version.
+%
+%   SLAMTB is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with SLAMTB.  If not, see <http://www.gnu.org/licenses/>.
+%
+%---------------------------------------------------------------------
+
+%   SLAMTB is Copyright 2007,2008,2009 
+%   by Joan Sola, David Marquez and Jean Marie Codol @ LAAS-CNRS.
+%   See on top of this file for its particular copyright.
+
+%   # END GPL LICENSE
+

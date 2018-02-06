@@ -1,0 +1,6 @@
+function read_and_save_time_stamp()
+config_file
+global myCONFIG
+for i=1:data_file_counting(myCONFIG.PATH.DATA_FOLDER,'d1');
+    source_data_file = sprintf('%s/d1_%04d.dat',source_folder,i);
+end

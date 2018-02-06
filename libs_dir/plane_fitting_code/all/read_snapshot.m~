@@ -1,0 +1,29 @@
+function [x_k_k,p_k_k,,q_expected] = read_snapshot(snap_step,varargin)
+global myCONFIG
+if nargin>1
+    relative_path = varargin{1};
+else
+       relative_path = 'DataSnapshots';  
+end
+if nargin>2
+    Flag_Plane_Fitting = varargin{2};
+else
+    Flag_Plane_Fitting = 0;
+end
+
+    
+load([myCONFIG.PATH.DATA_FOLDER,relative_path,'/snapshot',num2str(snap_step),'.mat'])
+features_info = eval(['snapshot',num2str(snap_step),'.features_info']);
+filter = eval(['snapshot',num2str(snap_step),'.filter']);
+if Flag_Plane_Fitting
+[R,T] = plane_fit_to_data(snap_step);
+else
+    R=eye(3);
+end
+x_k_k = get_x_k_k(filter);
+p_k_k = get_p_k_k(filter);
+
+q_expected = R2q(R');
+x_k_k = x_k_k(1:7);
+p_k_k = p_k_k (1:7,1:7);
+end
