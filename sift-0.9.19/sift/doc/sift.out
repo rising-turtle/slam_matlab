@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{User reference: the codecolorsift function}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Scale space parameters}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Detector parameters}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Descriptor parameters}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Direct access to SIFT components}{section.2}% 6
+\BOOKMARK [1][-]{appendix.A}{Internals}{}% 7
+\BOOKMARK [2][-]{subsection.A.1}{Scale spaces}{appendix.A}% 8
+\BOOKMARK [2][-]{subsection.A.2}{The detector}{appendix.A}% 9
+\BOOKMARK [2][-]{subsection.A.3}{The descriptor}{appendix.A}% 10
