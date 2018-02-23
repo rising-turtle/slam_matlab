@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+
+<project>
+        <name>CEKF-SLAM</name>
+
+        <author>
+		<name>Haiqiang Zhang</name>
+		<url>haiqiang.zhang@gmail.com</url>
+	</author>   
+	    <author>
+		<name>Lihua Dou</name>
+		<url>doulihua@bit.edu.cn</url>
+	</author> 
+
+        <briefdescription>
+	 CEKF-SLAM is a Compressed Extended Kalman Filter-based SLAM simulator 
+	 written under Matlab.
+	</briefdescription>
+
+        <description>
+	 CEKF-SLAM was originally proposed by Jose Guivant and Eduardo Net. This
+	 algorithm reduces the computational complexity by dividing the system 
+	 state vector into two parts: the active local state vector and the others.
+	 Only the local state vector is updated for each step by EKF, and the
+	 necessary information for updating the other states is compressed into
+	 some auxiliary cofficient matrices. When the local area changes, a full
+	 update was executed to get the same estimation results as EKF.	 
+	</description>
+
+    <requirement>Matlab</requirement>       
+
+	<map>feature maps</map>
+	
+	<image> 
+		<url>http://www.easyimage.us/fx_images/friedemannz_cekf_overview_zoomin.PNG</url>
+		<thumbnailurl>http://www.easyimage.us/fx_images/friedemannz_cekf_overview_zoomin.PNG</thumbnailurl>
+		<description>CEKF-SLAM overview and partial zooms</description>
+	</image>
+	
+	<paper>
+			<title>Optimization of the Simultaneous Localization and Map Building Algorithm for Real Time Implementation</title>
+		<authorlist>Jose Guivant and Eduardo Nebot</authorlist>
+		<publishedin>IEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION</publishedin>
+		<year>2001</year>
+	</paper>	
+</project>

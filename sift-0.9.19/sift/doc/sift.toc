@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}User reference: the {\tt \color {codecolor}sift} function}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Scale space parameters}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Detector parameters}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Descriptor parameters}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Direct access to SIFT components}{3}{subsection.2.4}
+\contentsline {section}{\numberline {A}Internals}{4}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Scale spaces}{4}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}The detector}{5}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.3}The descriptor}{6}{subsection.A.3}
