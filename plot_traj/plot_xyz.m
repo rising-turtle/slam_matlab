@@ -2,7 +2,7 @@ function plot_xyz(x, y, z, c)
 % 
 % plot_trajectory using color C 
 %
-    plot3(x, y, z, c, 'LineWidth', 2);
+    plot3(x, y, z, c, 'LineWidth', 4);
     hold on;
     hold off;
     axis equal;

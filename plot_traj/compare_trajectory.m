@@ -36,7 +36,7 @@ plot_xyz(-T_viorb(:,3), -T_viorb(:, 2), T_viorb(:, 4), 'm-');
 hold on;
 plot_xyz(T_okvis(:,2), T_okvis(:, 3), T_okvis(:, 4), 'b:');
 hold on; 
-grid on; 
+% grid on; 
 plot_xyz(T_vins(:,2), T_vins(:, 3), T_vins(:, 4), 'r-.');
 hold on; 
 plot_xyz(T_ext(:,2), T_ext(:, 3), T_ext(:, 4), 'g-');

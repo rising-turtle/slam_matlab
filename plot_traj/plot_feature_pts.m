@@ -13,7 +13,7 @@ pts = filter_distant(pts);
 
 hold on;
 grid on; 
-plot3(pts(:,1), pts(:,2), pts(:,3), '.', 'MarkerSize', 1);
+plot3(pts(:,1), pts(:,2), pts(:,3), '.', 'MarkerSize', 5);
 
 view(3);
 end
