@@ -18,6 +18,7 @@ if nargin == 0
     % inf = './motion_capture_data/Dense_Slow_640x480_30_b.csv';
     inf = './motion_capture_data/Dense_Slow_640x480_30_b_TPattern.log';
     ouf = './motion_capture_data/Dense_Slow_640x480_30_b_trajectory.log';
+    ouf2 = './motion_capture_data/Dense_Slow_640x480_30_b_trajectory_g.log';
 end
 
 %% add 3rd libraries
@@ -58,6 +59,22 @@ end
 %% generate pose
 [gt_pose, gt_pose_euler, distance_total] = compute_transformation(gt_total_pair); 
 
+%% transform back into global coordinates 
+R_w2l = R_l2w';
+t_w2l = -R_w2l*t_l2w;
+% e = R2e(R_w2l);
+% e(1) = 0;
+% R_w2l = e2R(e);
+% t_w2l = [0 0 0]'; % only use
+gt_pose_back = gt_pose;
+% gt_pose_back(:, 2:4) = transform_pc(gt_pose_euler(:,2:4), R_w2l, t_w2l);
+gt_pose_back(:, 2:8) = transform_TR(gt_pose(:,2:8), R_w2l, t_w2l);
+
+% e(1:2) = 0; %% get rid of yaw component
+% e(3) = -e(3);
+% R_w2l = e2R(e);
+% gt_pose_back(:, 2:4) = transform_pc(gt_pose_back(:,2:4), R_w2l, t_w2l);
+
 %% only convert with dataset_3 
 % gt_pose = [gt_pose(:,1), gt_pose(:,2), gt_pose(:,3), gt_pose(:,4:end)];
 
@@ -67,6 +84,8 @@ plot_gt_pose(gt_pose_euler);
 % plot_Rxyz(gt_pose_euler); 
 % plot_ground_truth1(gt);
 plot_gt_pairs(gt_total_pair); 
+
+plot_gt_pose(gt_pose_back);
 % plot_ground_truth2(gt_total);
 % plot_TPattern(gt_total); 
 % plot_displacement(gt_total);
@@ -80,8 +99,8 @@ plot_gt_pairs(gt_total_pair);
 % dlmwrite(total_out_file_name,gt_total_pair,' '); % [time_stamp [x y z]*5]
 % dlmwrite(gt_pose_out_file_name,gt_pose,' '); % [time_stamp [x y z q1 q2 q3 q4]
 
-dlmwrite(ouf,gt_pose,' '); % [time_stamp [x y z q1 q2 q3 q4]
-
+dlmwrite(ouf, gt_pose,' '); % [time_stamp [x y z q1 q2 q3 q4]
+dlmwrite(ouf2, gt_pose_back, ' '); % [time_stamp [x y z q1 q2 q3 q4]
 end
 
 function [gt_pose, gt_pose_euler, distance_total] = add_new_trans(rot, trans, timestamp, ... 

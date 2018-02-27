@@ -66,25 +66,10 @@ function pose = transform_viorb( pose_base, pose)
    end
 end
 
-function [q, t] = deconstruct(T)
-    [R,t] = decompose(T);
-    q = rmat2quat(R);
-    q = [q(2) q(3) q(4) q(1)];
-end
 
-function [T] = construct(v)
-    t = v(1:3);
-    q = [v(7),  v(4:6)];
-    R = quat2rmat(q');
-    T = combine(R, t');
-end
 
-function [T] = combine(R, t)
-    T = [R t; 0 0 0 1];
-end
 
-function [R, t] = decompose(T)
-    R = T(1:3, 1:3); 
-    t = T(1:3, 4);
-end
+
+
+
 
