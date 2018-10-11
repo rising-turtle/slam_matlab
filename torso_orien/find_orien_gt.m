@@ -4,7 +4,7 @@ function  find_orien_gt()
 %   the camera coordinate system, 
 %   then compute the normal of the torsor 
 
-M = csvread('gt_seq.csv');
+M = csvread('gt_seq_06.csv');
 
 vt = M(:,1); 
 pts_T = M(:,2:13);
@@ -22,7 +22,7 @@ T_c2w = T_c2T * T_T2w;
 vyaw = compute_yaw( pts_S, T_c2w); 
 
 D = [vt vyaw];
-dlmwrite('gt_orien.log', D, 'delimiter', '\t');
+dlmwrite('gt_orien_06.log', D, 'delimiter', '\t');
 
 end
 
