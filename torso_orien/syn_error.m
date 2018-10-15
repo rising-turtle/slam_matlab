@@ -5,14 +5,14 @@ function syn_error()
 est = load('estimate_05.log'); % load('estimate_06.log'); 
 gt = load('gt_orien_05.log'); % load('gt_orien_06.log'); 
 
-st_est = 1539117466.769190; % 1539117578.692901; 
+st_est = 1539117466.769190; % 1539117578.592901;
 st_gt = 48.825; %	50.75; 
 
 syn_gt_est = syn_yaw_with_gt(gt, est, st_gt, st_est); 
 
 %% find scale 
-x = syn_gt_est(100:600,3);
-y = syn_gt_est(100:600,2); 
+x = syn_gt_est(130:410,3);
+y = syn_gt_est(130:410,2); 
 x = smooth(x, 9);
 %% fit the linear model 
 % y = a*x+b; 
@@ -25,19 +25,24 @@ e = y - yy;
 de = sqrt(dot(e, e)/size(e,1));
 disp(['rmse = ' num2str(de)]);
 
-index = find(yy < 30);
+index = find(yy < 40);
 yy = yy(index);
 y = y(index);
 x = x(index);
 
+t = 1:size(x,1); 
+t = t/30;
 
 %% plot the result 
-plot(y, 'g-.');
+plot(t, y, 'g-.');
 hold on;
 % plot(x, 'r--');
 
 hold on; 
-plot(yy, 'b-.');
+plot(t, yy, 'b-.');
+
+e = y - yy; 
+plot(t, e, 'r-');
 
 end
 
@@ -53,8 +58,8 @@ function [syn_gt] = syn_yaw_with_gt(gt, est, st_gt, st_est)
         
         while j < size(gt,1)
            if gt(j-1,1) <= query_t && gt(j,1) >= query_t
-               if gt(j,2) <= 30 && gt(j,2) >= -30
-                    syn_gt = [syn_gt; query_t-gt(1,1) gt(j,2) est(i,2)];
+               if gt(j,2) <= 40 && gt(j,2) >= -40
+                    syn_gt = [syn_gt; query_t-gt(1,1) gt(j,2) est(i,3)];
                end
                break; 
            end

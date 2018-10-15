@@ -4,7 +4,7 @@ function  find_orien_gt()
 %   the camera coordinate system, 
 %   then compute the normal of the torsor 
 
-M = csvread('gt_seq_06.csv');
+M = csvread('gt_seq_07.csv');
 
 vt = M(:,1); 
 pts_T = M(:,2:13);
@@ -19,15 +19,16 @@ T_c2T = [1 0 0 -0.055;
          0 0 0 1;];
 T_c2w = T_c2T * T_T2w; 
 
-vyaw = compute_yaw( pts_S, T_c2w); 
+[vyaw, vpos] = compute_yaw_and_pos(pts_S, T_c2w); 
 
-D = [vt vyaw];
-dlmwrite('gt_orien_06.log', D, 'delimiter', '\t');
+
+D = [vt vyaw vpos];
+dlmwrite('gt_orien_07.log', D, 'delimiter', '\t');
 
 end
 
 %% compute yaw 
-function vyaw = compute_yaw(pts_S, T_c2w)
+function [vyaw, vpos] = compute_yaw_and_pos(pts_S, T_c2w)
 
 [row, col] = size(pts_S); 
 N = row*col; 
@@ -38,13 +39,16 @@ ps = reshape(pts_S, [3, N/3]);
 ps = R * ps + repmat(t, 1, N/3); 
 
 vyaw = zeros(row, 1); 
+vpos = zeros(row, 3); 
 
 %% compute norm
 j = 1;
 for i = 1:4:size(ps, 2)
     psi = ps(:,i:i+3); 
-    ni = compute_normal(psi); 
-    vyaw(j) = compute_yaw_norm(ni); 
+    ni = compute_normal(psi);
+    central_pt = mean(psi,2); 
+    vyaw(j) = compute_yaw_norm(ni);
+    vpos(j, :) = central_pt';
     j = j + 1;
 end
 
