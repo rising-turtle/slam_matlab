@@ -1,5 +1,5 @@
 function syn_error_pos()
-%% after synchronize, compute the error of orientation 
+%% after synchronize, compute the error of position 
 %
 
 est = load('estimate_07.log'); % load('estimate_06.log'); 

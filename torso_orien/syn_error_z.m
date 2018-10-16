@@ -1,5 +1,5 @@
-function syn_error_pos()
-%% after synchronize, compute the error of orientation 
+function syn_error_z()
+%% after synchronize, compute the depth error 
 %
 
 est = load('estimate_07.log'); % load('estimate_06.log'); 
@@ -11,21 +11,18 @@ syn_gt_est = syn_yaw_with_gt(gt, est, st_gt, st_est);
 
 %% find scale 
 st = 30; 
-et = 300;
+et = 273;
 
-y = syn_gt_est(st:et, 2:4); 
-x = syn_gt_est(:, 5:7); 
-x(:,1) = x(:, 1) - mean(x(:,1)) + mean(y(:,1));
-x(:,2) = x(:, 2) - mean(x(:,2)) + mean(y(:,2));
-x = x(st:et, :);
-
-x(:,1) = smooth(x(:,1), 7);
-x(:,2) = smooth(x(:,2), 7);
-x(:,3) = smooth(x(:,3), 7);
+y = syn_gt_est(st:et, 4); 
+x = syn_gt_est(st:et, 7); 
+y = y - y(1); 
+x = x - x(1); 
+x = smooth(x, 5);
 
 e = y - x; 
-ir = find(abs(e(:,2)) < 0.02);
-e = e(ir, :);
+% ir = find(abs(e(:,2)) < 0.02);
+% e = e(ir, :);
+% e = let_smooth(e);
 E = diag(e*e'); 
 de = sqrt(sum(E)/size(E,1));
 % de = sqrt(dot(e, e)/size(e,1));
@@ -33,25 +30,22 @@ disp(['rmse = ' num2str(de)]);
 
 t = 1:size(x,1); 
 t = t/30;
-t = t(ir);
+% t = t(ir);
 
 
 %% plot the result 
-plot(t, e(:,1), 'r-.');
+plot(t, y, 'g-.');
 % plot3(y(:,1), y(:,2), y(:,3), 'g-+');
 % plot(y(:,1), y(:,3), 'g-+'); 
 hold on;
-% plot(x, 'b--');
+plot(t, x, 'b-.');
 % plot3(x(:,1), x(:,2), x(:,3), 'b-*'); 
 % plot(x(:,1), x(:,3), 'b-+');
-plot(t, e(:,2), 'g-.');
+% plot(t, e(:,2), 'g-.');
 hold on; 
-plot(t, e(:,3), 'b-.');
+plot(t, e, 'r-.');
 
 end
-
-function let_
-
 
 function [syn_gt] = syn_yaw_with_gt(gt, est, st_gt, st_est)
     syn_gt = [];

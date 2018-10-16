@@ -11,8 +11,8 @@ st_gt = 48.825; %	50.75;
 syn_gt_est = syn_yaw_with_gt(gt, est, st_gt, st_est); 
 
 %% find scale 
-x = syn_gt_est(130:410,3);
-y = syn_gt_est(130:410,2); 
+x = syn_gt_est(130:310,3);
+y = syn_gt_est(130:310,2); 
 x = smooth(x, 9);
 %% fit the linear model 
 % y = a*x+b; 
@@ -22,16 +22,31 @@ disp(['Equation is y = ' num2str(c(1)) '*x + ' num2str(c(2))]);
 
 yy = c(1)*x + c(2);
 e = y - yy; 
+ir = find(abs(e(:)) < 5);
+x = x(ir);
+e = e(ir); 
+y = y(ir); 
+yy = yy(ir); 
+
+x = smooth(x, 5); 
+y = smooth(y, 5); 
+yy = c(1)*x + c(2); 
+e = y - yy; 
 de = sqrt(dot(e, e)/size(e,1));
 disp(['rmse = ' num2str(de)]);
 
-index = find(yy < 40);
-yy = yy(index);
-y = y(index);
-x = x(index);
+% index = find(yy < 40);
+% yy = yy(index);
+% y = y(index);
+% x = x(index);
 
 t = 1:size(x,1); 
 t = t/30;
+
+%% 
+
+% e = e(ir, :);
+% e = let_smooth(e);
 
 %% plot the result 
 plot(t, y, 'g-.');
@@ -58,7 +73,7 @@ function [syn_gt] = syn_yaw_with_gt(gt, est, st_gt, st_est)
         
         while j < size(gt,1)
            if gt(j-1,1) <= query_t && gt(j,1) >= query_t
-               if gt(j,2) <= 40 && gt(j,2) >= -40
+               if gt(j,2) <= 30 && gt(j,2) >= -30
                     syn_gt = [syn_gt; query_t-gt(1,1) gt(j,2) est(i,3)];
                end
                break; 
