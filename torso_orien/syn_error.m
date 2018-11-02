@@ -31,7 +31,10 @@ yy = yy(ir);
 x = smooth(x, 5); 
 y = smooth(y, 5); 
 yy = c(1)*x + c(2); 
+yy = smooth(yy, 7);
+yy = smooth(yy, 7);
 e = y - yy; 
+fprintf('max_e = %f std_e = %f', max(e), std(e));
 de = sqrt(dot(e, e)/size(e,1));
 disp(['rmse = ' num2str(de)]);
 

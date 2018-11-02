@@ -1,0 +1,15 @@
+
+%
+% Nov. 2, 2018, He Zhang, hzhang8@vcu.edu 
+% 
+% plot the trajectories of result in robocane folder 
+%
+
+tr_dvio = load('./robocane/dvio/elevator/candidate3.log'); 
+tr_vins_mono = load('./robocane/vins-mono/elevator/ds_candidate3.log'); 
+tr_vins_mono_rs = load('./robocane/vins-mono_rs/candidat3.log'); 
+
+
+
+
+
