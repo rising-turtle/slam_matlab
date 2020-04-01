@@ -1,0 +1,646 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0077)http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#tightsubplot -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><!-- <link href="default.css" rel="stylesheet" type="text/css"/> -->
+<STYLE type=text/css>H1 {
+	COLOR: #3a3a3a
+}
+PRE {
+	FONT-SIZE: 14px; COLOR: #3a3a3a; FONT-FAMILY: monaco, courier, monospace
+}
+BODY {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1em; RIGHT: 0px; PADDING-BOTTOM: 1em; MARGIN: 10px; COLOR: black; PADDING-TOP: 1em; FONT-FAMILY: arial, sans-serif; BACKGROUND-COLOR: #fffffa
+}
+DIV.module {
+	MARGIN-BOTTOM: 1em; BACKGROUND-COLOR: #ffffff
+}
+DIV.module H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1.5em; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0.5em; PADDING-TOP: 0px; BORDER-BOTTOM: #3a3a3a 2px solid
+}
+DIV.module PRE {
+	PADDING-LEFT: 1em
+}
+DIV.module DIV.footer {
+	CLEAR: both
+}
+DIV.module DIV.footer :link {
+	COLOR: white; TEXT-DECORATION: none
+}
+DIV.module DIV.index {
+	BORDER-RIGHT: #ccc0c0 1px solid; BORDER-TOP: #ccc0c0 1px solid; FONT-SIZE: 0.8em; FLOAT: right; BORDER-LEFT: #ccc0c0 1px solid; WIDTH: 15em; BORDER-BOTTOM: #ccc0c0 1px solid; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #fcf0f0
+}
+DIV.module DIV.index H1 {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 1em; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: medium none; PADDING-TOP: 0px; BORDER-BOTTOM: medium none; TEXT-ALIGN: center
+}
+DIV.module DIV.index UL {
+	PADDING-RIGHT: 0.3em; PADDING-LEFT: 0.3em; LIST-STYLE-POSITION: inside; PADDING-BOTTOM: 0.3em; MARGIN: 0px; COLOR: #3a3a3a; PADDING-TOP: 0.3em; LIST-STYLE-TYPE: square
+}
+DIV.module DIV.index UL LI {
+	MARGIN-BOTTOM: 0.1em
+}
+DIV.mfile {
+	BORDER-RIGHT: #aaaaaa 1px solid; BORDER-TOP: #aaaaaa 1px solid; MARGIN-BOTTOM: 1em; BORDER-LEFT: #aaaaaa 1px solid; BORDER-BOTTOM: #aaaaaa 1px solid; BACKGROUND-COLOR: white
+}
+DIV.mfile H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; FONT-SIZE: 1.3em; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #f0f0ff
+}
+DIV.mfile H1 SPAN.name {
+	FONT-FAMILY: monaco, courier, fixed
+}
+DIV.mfile H1 SPAN.brief {
+	PADDING-LEFT: 10px; FONT-WEIGHT: normal; FONT-SIZE: 0.9em
+}
+DIV.mfile PRE {
+	PADDING-LEFT: 1em
+}
+DIV.mfile DIV.footer {
+	PADDING-RIGHT: 0.3em; PADDING-LEFT: 0.3em; FONT-SIZE: 0.8em; PADDING-BOTTOM: 0.3em; PADDING-TOP: 0.3em
+}
+DIV.mfile DIV.footer A {
+	COLOR: #777777; TEXT-DECORATION: none
+}
+DIV.mfile DIV.footer A:hover {
+	TEXT-DECORATION: underline
+}
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16809" name=GENERATOR></HEAD>
+<BODY>
+<DIV class=module id=sift_overview>
+<H1>Scale-Invariant Feature Transfrom</H1>
+<DIV class=index>
+<H1>Module contents</H1>
+<UL>
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">diffss</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">gaussianss</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#imreadbw">imreadbw</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotmatches">plotmatches</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">plotsiftdescriptor</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftframe">plotsiftframe</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotss">plotss</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">sift</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_compile">sift_compile</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo">sift_demo</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo2">sift_demo2</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo3">sift_demo3</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo4">sift_demo4</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo5">sift_demo5</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo6">sift_demo6</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">siftdescriptor</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">siftlocalmax</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftmatch">siftmatch</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftread">siftread</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftrefinemx">siftrefinemx</A> 
+
+  <LI><A 
+  href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#tightsubplot">tightsubplot</A> 
+  </LI></UL></DIV><PRE>
+  This is a MATLAB/C implementation of the SIFT detector and
+  descriptor [1]. You can:
+
+  * Use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>() to detect the SIFT frames (keypoints) of a given image
+    and compute their descriptors. Then you can use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftmatch">SIFTMATCH</A>() to
+    match the descriptors.
+
+  * Use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotss">PLOTSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftframe">PLOTSIFTFRAME</A>(),
+    <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotmatches">PLOTMATCHES</A>() to visualize the results.
+
+  As SIFT is implemented by several reusable M and MEX files, you can
+  also run portions of the algorithm. Specifically, you can:
+
+  * Use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>() to compute the SIFT descriptor from a list
+    of frames and a scale space or plain image.
+
+  * Use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>() and <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">DIFFSS</A>() to compute the Gaussian and DOG
+    scale spaces.
+
+  * Use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftrefinemx">SIFTREFINEMX</A>(), SIFTORMX() to manually
+    extract the SIFT frames from the DOG scale space. More in
+    general, you can use <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>() to find maximizers of any
+    multi-dimensional arrays.
+
+  REFERENCES
+
+  [1] D. G. Lowe, "Distinctive image features from scale-invariant
+      keypoints," IJCV, vol. 2, no. 60, pp. 91 110, 2004.
+
+  See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift.introduction">PDF:SIFT.INTRODUCTION</A>.
+
+      </PRE>
+<DIV class=footer></DIV></DIV>
+<DIV class=mfile id=diffss>
+<H1><SPAN class=name>diffss</SPAN> <SPAN class=brief>Difference of scale 
+space</SPAN> </H1><PRE>   DSS=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">DIFFSS</A>(SS) returns a scale space DSS obtained by subtracting
+   consecutive levels of the scale space SS.
+
+   In SIFT, this function is used to compute the difference of
+   Gaussian scale space from the Gaussian scale space of an image.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift.user.ss">PDF:SIFT.USER.SS</A>.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=gaussianss>
+<H1><SPAN class=name>gaussianss</SPAN> <SPAN class=brief></SPAN></H1><PRE>   SS = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>(I,SIGMAN,O,S,OMIN,SMIN,SMAX,SIGMA0) returns the
+   Gaussian scale space of image I. Image I is assumed to be
+   pre-smoothed at level SIGMAN. O,S,OMIN,SMIN,SMAX,SIGMA0 are the
+   parameters of the scale space as explained in <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift.user.ss">PDF:SIFT.USER.SS</A>.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">DIFFSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift.user.ss">PDF:SIFT.USER.SS</A>.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=imreadbw>
+<H1><SPAN class=name>imreadbw</SPAN> <SPAN class=brief>Reads an image as 
+gray-scale</SPAN> </H1><PRE>   I=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#imreadbw">IMREADBW</A>(FILE) reads the image FILE and converts the result to a
+   gray scale image (with DOUBLE storage class anr range normalized
+   in [0,1]).
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=plotmatches>
+<H1><SPAN class=name>plotmatches</SPAN> <SPAN class=brief>Plot keypoint 
+matches</SPAN> </H1><PRE>   <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotmatches">PLOTMATCHES</A>(I1,I2,P1,P2,MATCHES) plots the two images I1 and I2
+   and lines connecting the frames (keypoints) P1 and P2 as specified
+   by MATCHES.
+
+   P1 and P2 specify two sets of frames, one per column. The first
+   two elements of each column specify the X,Y coordinates of the
+   corresponding frame. Any other element is ignored.
+
+   MATCHES specifies a set of matches, one per column. The two
+   elementes of each column are two indexes in the sets P1 and P2
+   respectively.
+
+   The images I1 and I2 might be either both grayscale or both color
+   and must have DOUBLE storage class. If they are color the range
+   must be normalized in [0,1].
+
+   The function accepts the following option-value pairs:
+
+   'Stacking' ['h']
+      Stacking of images: horizontal ['h'], vertical ['v'], diagonal
+      ['h'], overlap ['o']
+
+   'Interactive' [0]
+      If set to 1, starts the interactive session. In this mode the
+      program lets the user browse the matches by moving the mouse:
+      Click to select and highlight a match; press any key to end.
+      If set to a value greater than 1, the feature matches are not
+      drawn at all (useful for cluttered scenes).
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftframe">PLOTSIFTFRAME</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotss">PLOTSS</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=plotsiftdescriptor>
+<H1><SPAN class=name>plotsiftdescriptor</SPAN> <SPAN class=brief>Plot SIFT 
+descriptor</SPAN> </H1><PRE>   <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(D) plots the SIFT descriptors D, stored as
+   columns of the matrix D. D has the same format used by <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>().
+
+   <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(D,F) plots the SIFT descriptors warped to the
+   SIFT frames F, specified as columns of the matrix F. F has
+   the same format used by <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>().
+
+   H=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(...) returns the handle H to the line drawing
+   representing the descriptors.
+
+   REMARK. Currently the function supports only descriptors with 4x4
+   spatial bins and 8 orientation bins (Lowe's default.)
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftframe">PLOTSIFTFRAME</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotmatches">PLOTMATCHES</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotss">PLOTSS</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=plotsiftframe>
+<H1><SPAN class=name>plotsiftframe</SPAN> <SPAN class=brief>Plot SIFT 
+frame</SPAN> </H1><PRE>   H=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftframe">PLOTSIFTFRAME</A>(FRAMES) plots the SIFT frames FRAMES and returns
+   and handle H to the resulting line set. FRAMES has the same format
+   used by <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>().
+
+   A SIFT frame is denoted by a circle, representing its support, and
+   one of its radii, representing its orientation. The support is a
+   disk with radius equal to six times the scale SIGMA of the
+   frame. If the standard parameters are used for the detector, this
+   corresponds to four times the standard deviation of the Gaussian
+   window that has been uses to estimate the orientation, which is in
+   fact equal to 1.5 times the scale SIGMA.
+
+   Option-value pairs
+   
+   'Labels' []
+     Specify a cell-array of labels, one for each keypoint. These
+     will be drawn close to the keypoint centers.
+
+   'Style' ['circle']
+     Plot style: circles ('circle'),  arrows ('arrow')
+
+   This function is considerably more efficient if called once on a
+   whole set of frames as opposed to multiple times, one for each
+   frame.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotmatches">PLOTMATCHES</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotss">PLOTSS</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=plotss>
+<H1><SPAN class=name>plotss</SPAN> <SPAN class=brief>Plot scale space</SPAN> 
+</H1><PRE>   <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotss">PLOTSS</A>(SS) plots all octaves of the scale space SS.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">DIFFSS</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift>
+<H1><SPAN class=name>sift</SPAN> <SPAN class=brief>Extract SIFT features</SPAN> 
+</H1><PRE>   [FRAMES,DESCR]=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>(I) extracts the SIFT frames FRAMES and their
+   descriptors DESCR from the image I.
+
+   The image I must be gray-scale, of storage class DOUBLE and
+   ranging in [0,1].
+
+   FRAMES is a 4xK matrix storing one SIFT frame per column. Its
+   format is:
+
+     FRAMES(1:2,k)  center (X,Y) of the frame k,
+     FRAMES(3,k)    scale SIGMA of the frame k,
+     FRAMES(4,k)    orientation THETA of the frame k.
+
+   DESCR is a DxK matrix stores one descriptor per columm (usually
+   D=128).
+
+   [FRAMES,DESCR,GSS,DOGSS]=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>(...) returns the Gaussian and
+   Difference of Gaussians scale spaces computed by the algorithm.
+
+   The function accepts the following option-value pairs:
+
+   Verbosity - Verbosity level [{0},1]
+     0 = quiet, 1 = print detailed progress report
+
+   BoundaryPoint - Remove frames on the image boundaries [0,{1}]
+     Remove points whose descriptor intersects the boundary.
+
+   NumOctaves - Number of octaves [1,2,...]
+     Number of octaves of the Gaussian scale space. By default it is
+     computed to cover all possible feature sizes.
+
+   FirstOctave - Index of the first octave [...,-1,{0},+1,...]
+     Setting the parameter to -1 has the effect of doubling the image
+     before computing the scale space.
+
+   NumLevels - [1,2,...]
+     Number of scale levels within each octave.
+
+   Sigma0 - Base smoothing [pixels]
+     Smoothing of the level 0 of octave 0 of the scale space. By
+     default it is set to be equivalent to the value 1.6 of [1].
+     Since however 1.6 is the smoothing of the level -1 and Simga0
+     of the level 0, the actual value is NOT 1.6.
+
+   SigmaN - Nominal smoothing [pixels, {0.5}]
+     Nominal smoothing of the input image.
+
+   Threshold - Strenght threshold [&gt;= 0, {0.01}]
+     Maxima of the DOG scale space [1] below this threshold are
+     ignored. Smaller values accept more features.
+
+   EdgeThreshold - Localization threshold [&gt;= 0, {10}]
+     Feature which have flattness score [1] above this threshold are
+     ignored. Bigger values accept more features.
+
+   Magnif - Descriptor window magnification
+     See <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>().
+
+   NumSpatialBins - Number of spatial bins [2,{4},6,...]
+     See <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>().
+
+   NumOrientbins - Number of orientation bins [1,2,...,{8},...]
+     See <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>().
+
+  REFERENCES
+  [1] D. G. Lowe, "Distinctive image features from scale-invariant
+      keypoints," IJCV, vol. 2, no. 60, pp. 91 110, 2004.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">DIFFSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftframe">PLOTSIFTFRAME</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#plotsiftdescriptor">PLOTSIFTDESCRIPTOR</A>(),
+            <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftmatch">SIFTMATCH</A>().
+
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_compile>
+<H1><SPAN class=name>sift_compile</SPAN> <SPAN class=brief>Compile MEX 
+files</SPAN> </H1><PRE>   Compiling under Windows requires at least Visual C 6 or LCC. You
+   might try other compilers, but most likely you will need to edit
+   this file.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_demo>
+<H1><SPAN class=name>sift_demo</SPAN> <SPAN class=brief>Demonstrate SIFT code 
+(1)</SPAN> </H1><PRE>   This demo computes the SIFT descriptor on a pair of well known
+   test images.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo2">SIFT_DEMO2</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_demo2>
+<H1><SPAN class=name>sift_demo2</SPAN> <SPAN class=brief>Demonstrate SIFT code 
+(2)</SPAN> </H1><PRE>   This is similar to <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo">SIFT_DEMO</A>().
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_demo">SIFT_DEMO</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_demo3>
+<H1><SPAN class=name>sift_demo3</SPAN> <SPAN class=brief>Demonstrate SIFT code 
+(3)</SPAN> </H1><PRE>   This compares our and D. Lowe's implementation. Not perfect,
+   but close.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_demo4>
+<H1><SPAN class=name>sift_demo4</SPAN> <SPAN class=brief>Demonstrate SIFT code 
+(s)</SPAN> </H1><PRE>   This compares our and D. Lowe's implementation. Not perfect,
+   but close.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_demo5>
+<H1><SPAN class=name>sift_demo5</SPAN> <SPAN class=brief>Demonstrate SIFT code 
+(5)</SPAN> </H1><PRE>   Finding eggs.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=sift_demo6>
+<H1><SPAN class=name>sift_demo6</SPAN> <SPAN class=brief>Demonstrate SIFT code 
+(6)</SPAN> </H1><PRE>   Using custom keypoints.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=siftdescriptor>
+<H1><SPAN class=name>siftdescriptor</SPAN> <SPAN class=brief>Compute SIFT 
+descriptors</SPAN> </H1><PRE>   DESCR = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>(G, P, SIGMA0, S, MINS) returns the SIFT
+   descriptors DESCR of the SIFT frames P defined on the octave G of
+   the Gaussian scale space. SIGMA0, S and MINS are the the parameter
+   of the scale space as explained in <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift.user.ss">PDF:SIFT.USER.SS</A>. P has one
+   column per frame, specifiying the center X1,X2, the scale index s
+   and the orientation THETA of the frame in this order. Note that:
+
+   - The functions operates on a single octave G of the scale
+     space. In order to process frames spanning more than one
+     octave the function must be called multiple times
+
+   - The scale of a SIFT frame is given by SIGMA(s,o) = SIGMA0
+     2^(o+s/S) where o is the octave index and s is the scale
+     index. Since <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>() operates on a specific octave G, P
+     contains the scale index s rather than the scale SIGMA.
+
+   DESCR = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>(I, P, SIGMA) operates on a plain image I
+   which is assumed to be pre-smoothed at scale SIGMA. In this case P
+   specifies X1,X2 and the orientation THETA (but NOT the scale
+   index). Note that:
+
+   - SIGMA is the scale and not the scale index.
+
+   - While the Gaussian scale space octaves are downsampled, I is
+     not.
+
+   Other parameters can be specfied as option-value paris. These
+   are:
+
+   'Magnif' [3.0]
+      Frame magnification factor. Each spatial bin of the SIFT
+      histogram has an exentsion equal to magnif * sigma, where
+      magnif is the frame magnification factor and sigma is the scale
+      of the frame.
+
+   'NumSpatialBins' [4]
+      This parameter specifies the number of spatial bins in each
+      spatial direction X1 and X2. It must be a positive and even
+      number.
+
+   'NumOrientBins' [8]
+      This parameter specifies the number of orietnation bins. It
+      must be a positive number.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#diffss">DIFFSS</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>(), 
+            <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift.user.descriptor">PDF:SIFT.USER.DESCRIPTOR</A>.
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=siftlocalmax>
+<H1><SPAN class=name>siftlocalmax</SPAN> <SPAN class=brief>Find local 
+maximizers</SPAN> </H1><PRE>   SEL=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>(F) returns the indexes of the local maximizers of
+   the Q-dimensional array F.
+
+   A local maximizer is an element whose value is greater than the
+   value of all its neighbors.  The neighbors of an element i1...iQ
+   are the subscripts j1...jQ such that iq-1 &lt;= jq &lt;= iq (excluding
+   i1...iQ itself).  For example, if Q=1 the neighbors of an element
+   are its predecessor and successor in the linear order; if Q=2, its
+   neighbors are the elements immediately to its north, south, west,
+   est, north-west, north-est, south-west and south-est
+   (8-neighborhood).
+
+   Points on the boundary of F are ignored (and never selected as
+   local maximizers).
+
+   SEL=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>(F,THRESH) accepts an element as a mazimizer only
+   if it is at least THRES greater than all its neighbors.
+
+   SEL=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>(F,THRESH,P) look for neighbors only in the first
+   P dimensions of the Q-dimensional array F. This is useful to
+   process F in ``slices''.
+
+   REMARK.  Matrices (2-array) with a singleton dimension are
+   interpreted as vectors (1-array). So for example <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>([0 1
+   0]) and <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>([0 1 0]') both return 2 as an aswer. However,
+   if [0 1 0] is to be interpreted as a 1x2 matrix, then the correct
+   answer is the empty set, as all elements are on the boundary.
+   Unfortunately MATLAB does not distinguish between vectors and
+   2-matrices with a singleton dimension.  To forece the
+   interpretation of all matrices as 2-arrays, use
+   <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftlocalmax">SIFTLOCALMAX</A>(F,TRESH,2) (but note that in this case the result is
+   always empty!).
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=siftmatch>
+<H1><SPAN class=name>siftmatch</SPAN> <SPAN class=brief>Match SIFT 
+features</SPAN> </H1><PRE>   MATCHES=<A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftmatch">SIFTMATCH</A>(DESCR1, DESCR2) matches the two sets of SIFT
+   descriptors DESCR1 and DESCR2.
+
+   The function uses the same algorithm suggested by D. Lowe [1] to
+   reject matches that are too ambiguous.
+
+   <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftmatch">SIFTMATCH</A>(DESCR1, DESCR2, THRESH) uses [1] with the specified
+   threshold THRESH. A descriptor D1 is matched to a descriptor D2
+   only if the distance d(D1,D2) multiplied by THRESH is not greather
+   than the distance of D1 to all other descriptors. The default
+   value of THRESH is 1.5.
+   
+   The storage class of the descriptors can be either DOUBLE, FLOAT,
+   INT8 or UINT8. Usually interger classes are faster.
+   
+   [1] D. G. Lowe, 
+       `Distinctive image features from scale-invariant keypoints,'
+       IJCV, vol. 2, no. 60, pp. 91–110, 2004.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>(), <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftdescriptor">SIFTDESCRIPTOR</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=siftread>
+<H1><SPAN class=name>siftread</SPAN> <SPAN class=brief>Read Lowe's SIFT 
+implementation data files</SPAN> </H1><PRE>   [FRAMES, DESCRIPTORS] = READSIFT(FILE) reads the frames and the
+   descriptors from the specified file. The function reads files
+   produced by Lowe's SIFT implementation.
+     
+   FRAMES and DESCRIPTORS have the same format used by <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>(). 
+
+   REMARK. Lowe's and our implementations use a silightly different
+   convention to store the orientation of the frame. When the file
+   is read, the orientation is changed to match our convention.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=siftrefinemx>
+<H1><SPAN class=name>siftrefinemx</SPAN> <SPAN class=brief>Subpixel 
+localization, thresholding and on-edge test</SPAN> </H1><PRE>   Q = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftrefinemx">SIFTREFINEMX</A>(P, OCTAVE, SMIN) refines, thresholds and performs
+   the on-edge test for the SIFT frames P extracted from the DOG
+   octave OCTAVE with parameter SMIN (see <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#gaussianss">GAUSSIANSS</A>()).
+
+   Q = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#siftrefinemx">SIFTREFINEMX</A>(P, OCTAVE, SMIN, THRESH, R) specifies custom
+   values for the local maximum strength threshold THRESH and the
+   local maximum peakedeness threshold R.
+
+   OCTAVE is an octave of the Difference Of Gaussian scale space. P
+   is a 3xK matrix specifying the indexes (X,Y,S) of the points of
+   extremum of the octave OCTAVE. The spatial indexes X,Y are integer
+   with base zero. The scale index S is integer with base SMIN and
+   represents a scale sublevel in the specified octave.
+
+   The function returns a matrix Q containing the refined keypoints.
+   The matrix has the same format as P, except that the indexes are
+   now fractional. The function drops the points that do not satisfy
+   the strength and peakedness tests.
+
+   See also <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift">SIFT</A>().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV>
+<DIV class=mfile id=tightsubplot>
+<H1><SPAN class=name>tightsubplot</SPAN> <SPAN class=brief>Tiles axes without 
+wasting space</SPAN> </H1><PRE>   H = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#tightsubplot">TIGHTSUBPLOT</A>(K,P) returns an handle to the P-th axis in a
+   regular grid of K axes. The K axes are numbered from left to right
+   and from top to bottom.  The function operates similarly to
+   SUBPLOT(), but by default it does not put any margin between axes.
+
+   H = <A href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#tightsubplot">TIGHTSUBPLOT</A>(M,N,P) retursn an handle to the P-th axes in a
+   regular subdivision with M rows and N columns.
+
+   The function accepts the following option-value pairs:
+
+   'Spacing' [0]
+     Set extra spacing between axes.  The space is added between the
+     inner or outer boxes, depending on the setting below.
+
+   'Box' ['inner'] (** ONLY &gt;R14 **)
+     If set to 'outer', the function displaces the axes by their
+     outer box, thus protecting title and labels. Unfortunately
+     MATLAB typically picks unnecessarily large insets, so that a bit
+     of space is wasted in this case.  If set to 'inner', the
+     function uses the inner box. This causes the instets of nearby
+     axes to overlap, but it is very space conservative.
+
+   REMARK. While SUBPLOT kills any pre-existing axes that overalps a
+   new one, this function does not.
+
+   See also SUBPLOT().
+
+      </PRE>
+<DIV class=footer><A 
+href="http://vision.ucla.edu/~vedaldi/code/sift/assets/sift/index.html#sift_overview">Scale-Invariant 
+Feature Transfrom </A></DIV></DIV></BODY></HTML>

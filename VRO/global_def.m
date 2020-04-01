@@ -27,7 +27,9 @@ g_ws_dir = 'D:/work/SLAM/soonhac/';
 % g_data_dir = 'D:/work/SLAM/pose_estimation/dataset_1';
 % g_data_dir = 'D:/co_worker/pose_estimation/dataset_1';
 % g_data_dir = 'D:/work/SLAM/pose_estimation/realsense';
-g_data_dir = 'D:/work/data/realsense/captured_data_EIT_5th_floor';
+% g_data_dir = 'D:/work/data/realsense/captured_data_EIT_5th_floor';
+
+g_data_dir = 'C:/Users/fuyin/Desktop/work/code/github/slam_matlab/slam_matlab/VRO/Translation';
 
 %% total number of frames 
 global g_total_frames g_start_frame
@@ -36,7 +38,8 @@ g_total_frames = 1600;
 
 % g_data_prefix = 'x';
 % g_data_prefix = 'd1';
-g_data_prefix = 'f';
+% g_data_prefix = 'f';
+g_data_prefix = 'frm';
 % g_data_prefix = 'Data2';
 % g_data_prefix = 'bb2mb';
 % g_data_prefix = 'l2o';
@@ -53,9 +56,9 @@ g_data_prefix = 'f';
 g_data_suffix = 'dat'; 
 
 % currently, smart_cane: SR, creative 
-g_camera_type = 'smart_cane';  % this is also the data_name
+% g_camera_type = 'smart_cane';  % this is also the data_name
 % g_camera_type = 'creative';
-% g_camera_type = 'vro_test'; % for vro test
+g_camera_type = 'vro_test'; % for vro test
 
 global g_filter_type % filter the input camera data 
 g_filter_type = 'gaussian';
@@ -104,8 +107,10 @@ g_pose_std_dir = 'pose_std_zh';
 %% vro test src & tar data path 
 global g_src_data_path g_tar_data_path g_vo_data_dir
 g_vo_data_dir = g_data_dir;
-g_tar_data_path = strcat(g_vo_data_dir, strcat('/', 'image_1')); 
-g_src_data_path = strcat(g_vo_data_dir, strcat('/', 'image_2'));
+% g_tar_data_path = strcat(g_vo_data_dir, strcat('/', 'image_1')); 
+% g_src_data_path = strcat(g_vo_data_dir, strcat('/', 'image_2'));
+g_tar_data_path = strcat(g_vo_data_dir, strcat('/', 'Y1')); 
+g_src_data_path = strcat(g_vo_data_dir, strcat('/', 'Y4'));
 
 global g_save_vro_middle_result 
 g_save_vro_middle_result = false; % weather to save the middle result of vro
@@ -114,7 +119,7 @@ global g_save_feature_for_debug
 g_save_feature_for_debug = false; % save the feature info for debugging my vo in sr_slam 
 
 global g_data_height 
-g_data_height = 480; % 144
+g_data_height = 144; % 480; % 144
 
 %% for slam small movement 
 global g_minimal_rotation g_minimal_translation 

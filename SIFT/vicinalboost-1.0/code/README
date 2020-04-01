@@ -1,0 +1,77 @@
+			     VicinalBoost
+		   Andrea Vedaldi and Paolo Favaro
+
+vicinalboost.m implements the algorithm discussed in [1]
+
+The directory 'experiments/' contains the drivers for the Viola-Jones
+database experiments and the synthetic data experiments appearing in
+[1].
+
+1. BASIC  EXPERIMENTS. 
+	
+Fire up MATALB. The first step is to generate the data. This is
+obtained by issuing
+
+> gen_shapes ;
+
+The results is written to 'data/shapes.mat'. The directory 'data' should
+already contain the Viola-Jones dataset 'data/vjf.mat'.
+Then we compute the tangent vectors by issuing
+
+> tangent_shapes ;
+> tangent_faces ;
+
+The results is written to 'data/shapes_tangent.mat' and
+'data/vjf_tangent.mat'. Then we add the directory experiments to the
+path
+
+> addpath experiments ;
+
+and we can run the experiments
+
+> shapes_basic ;
+> faces_basic ;
+> faces_full ;
+
+This will write the results to 'results/shapes_basic.mat',
+'results/faces_basic.mat' and 'results/faces_full.mat'. Finally
+we can plot the results:
+
+> plot_shapes_basic ;
+> plot_faces_basic ;
+> plot_faces_full ;
+
+2. HAAR EXPERIMENTS
+
+These experiments require Wavelab850. If you do not have it installed
+or you do not want to install it globally, create a directory toolbox,
+download the Wavelab850 package and decompress it there. For instance
+under Linux (shell prompt)
+
+> mkdir toolbox
+> cd toolbox 
+> wget http://www-stat.stanford.edu/~wavelab/Wavelab_850/WAVELAB850.ZIP
+> unzip WAVELAB850.ZIP
+
+should to the trick.
+
+Then fire-up MATLAB and issue
+
+> faces_haar ;
+> shapes_haar ;
+> plot_faces_haar ;
+> plot_shapes_haar ;
+
+3. RUNNING ON A CLUSTER
+
+Running all experiments is a massive computation. We used a cluster of
+machines. The M-files and the shell scripts 'clusterrun.sh' and
+'all.sh' may be of some help in this regard, but how to do this in
+practice heavily depends on your cluster setup.
+
+
+			      REFERENCES
+
+[1] A. Vedaldi, P. Favaro and E. Grisan, "Boosting Invariance and
+Efficiency in Supervised Learning," Proc. Int. Conf. on Comp. Vision
+(ICCV), 2007.
